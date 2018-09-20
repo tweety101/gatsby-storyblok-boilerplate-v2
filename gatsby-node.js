@@ -32,26 +32,20 @@ exports.createPages = ({ graphql, actions }) => {
           reject(result.errors)
         }
         const entries = result.data.allStoryblokEntry.edges;
-        let enGlobalSetting = [];
-        let cnGlobalSetting = [];
         for (let i = 0; i < entries.length; i++) {
-          if (entries[i].node.full_slug === "en/globalsettings") {
+          if (entries[i].node.slug === "globalsettings") {
             enGlobalSetting = entries.splice(i,1)
-          }
-          else if (entries[i].node.full_slug === "cn/globalsettings") {
-            cnGlobalSetting = entries.splice(i,1)
           }
   } ;
 
-  console.log(entries);
   entries.forEach((entry, index) => {
     if (entry.node.full_slug.substring(0,3) == "en/") {
       createPage({
         path: `/${entry.node.full_slug}`,
         component: storyblokEntry,
         context: {
-          globalSettings: enGlobalSetting,
-          story: entry.node
+          story: entry.node,
+          lang: "en/globalsettings"
         }
       })
     }
@@ -60,8 +54,8 @@ exports.createPages = ({ graphql, actions }) => {
           path: `/${entry.node.full_slug}`,
           component: storyblokEntry,
           context: {
-            globalSettings: cnGlobalSetting,
-            story: entry.node
+            story: entry.node,
+            lang: "cn/globalsettings"
           }
         })
       }

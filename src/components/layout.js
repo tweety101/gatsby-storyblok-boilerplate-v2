@@ -7,8 +7,8 @@ import Header from './header'
 import './layout.css'
 
 
-const Layout = ({ children, settings, myurl }) => { 
-
+const Layout = ({ children, settings, myurl }) => {
+  
   return(
   <StaticQuery
     query={graphql`
@@ -18,6 +18,18 @@ const Layout = ({ children, settings, myurl }) => {
             title
           }
         }
+        allStoryblokEntry(
+    filter: {slug: {eq: "globalsettings"}}
+  ) {
+    edges {
+      node {
+        name
+        slug
+        content
+        
+      }
+    }
+  }
       }
     `}
     render={data => (
@@ -41,6 +53,7 @@ const Layout = ({ children, settings, myurl }) => {
             paddingTop: 0,
           }}
         >
+        
           {children}
         </div>
       </>
