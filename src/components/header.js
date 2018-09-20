@@ -27,7 +27,10 @@ const Navlink = styled(Link)`
 `
 
 
-const Header = ({ siteTitle, navlinks, myurl }) => (
+const Header = ({ siteTitle, settings, myurl }) => {
+  
+  
+  return(
   <Wrapper>
     <Container>
       <Branding>
@@ -42,13 +45,16 @@ const Header = ({ siteTitle, navlinks, myurl }) => (
         </Link>
       </Branding>
       <div>
-        {navlinks.map(lnk => (
+        {(settings) === undefined ? "no links here" :
+        
+        settings.header_links.map(lnk => (
           <Navlink
           key={lnk.link.cached_url}
           to={lnk.link.cached_url}>{lnk.display_name}</Navlink>
         ))}
       </div>
       <div>
+
         <Navlink
         to={myurl.replace("/cn/", "/en/")}
         >English</Navlink>
@@ -59,5 +65,6 @@ const Header = ({ siteTitle, navlinks, myurl }) => (
     </Container>
   </Wrapper>
 )
+        }
 
 export default Header

@@ -6,7 +6,10 @@ import { StaticQuery, graphql } from 'gatsby'
 import Header from './header'
 import './layout.css'
 
-const Layout = ({ children, settings, myurl }) => (
+
+const Layout = ({ children, settings, myurl }) => { 
+
+  return(
   <StaticQuery
     query={graphql`
       query SiteTitleQuery {
@@ -30,7 +33,7 @@ const Layout = ({ children, settings, myurl }) => (
         </Helmet>
         <Header 
         siteTitle={data.site.siteMetadata.title}
-        navlinks={settings.header_links}
+        settings={settings}
         myurl={myurl} />
         <div
           style={{
@@ -43,7 +46,7 @@ const Layout = ({ children, settings, myurl }) => (
       </>
     )}
   />
-)
+)}
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,

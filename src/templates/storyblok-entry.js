@@ -6,8 +6,8 @@ import Layout from '../components/layout'
 class StoryblokEntry extends React.Component {
   constructor(props) {
     super(props)
-    let story = Object.assign({}, props.pathContext.story)
-    let globalSettings = Object.assign({}, props.pathContext.globalSettings)
+    let story = Object.assign({}, props.pageContext.story)
+    let globalSettings = Object.assign({}, props.pageContext.globalSettings)
     story.content = JSON.parse(story.content)
     globalSettings.content = JSON.parse(globalSettings[0].node.content)
     this.state = {story: story, globalSettings: globalSettings}
@@ -17,7 +17,7 @@ class StoryblokEntry extends React.Component {
     let content = this.state.story.content
     let settings = this.state.globalSettings.content
     let myurl = this.props.location.pathname
-
+    console.log(settings.header_links)
     return (
       <Layout
       settings={settings}
