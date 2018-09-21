@@ -27,7 +27,8 @@ const Pulsepoints2 = styled('g')`
 
 `
 const Worldoutline = styled('path')`
-    fill: #72B0AC;
+    fill: url(#simpleGradient);
+    stroke: #988989;
 `
 const Background = styled('div')`
     width:100%;
@@ -49,6 +50,14 @@ const Mappart = styled('svg')`
 const Animatedmap = (props) => (
     <Background>
         <svg height="0">
+            <defs>
+            <radialGradient id="simpleGradient"
+            cx="70%"
+            cy="20%"> 
+                <stop offset="10%" stop-color="#2AA8A5"/> 
+                <stop offset="95%" stop-color="#097E77"/> 
+            </radialGradient>
+            </defs>
             <filter id="blurMe">
             <feGaussianBlur in="SourceGraphic" stdDeviation="2" />
              </filter>
