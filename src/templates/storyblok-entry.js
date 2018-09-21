@@ -5,18 +5,11 @@ import { graphql } from 'gatsby'
 import Layout from '../components/layout'
 
 class StoryblokEntry extends React.Component {
-  constructor(props) {
-    super(props)
-    let story = Object.assign({}, props.pageContext.story)
-    story.content = JSON.parse(story.content)
-    this.state = { story: story }
-  }
 
   render() {
-    let content = this.state.story.content
+    let content = JSON.parse(this.props.pageContext.story.content)
     let myurl = this.props.location.pathname
     let langsettings = JSON.parse(this.props.data.storyblokEntry.content)
-    console.log(langsettings)
     return (
       <Layout
         settings={langsettings}
