@@ -3,7 +3,8 @@ import Layout from '../components/layout'
 
 const NotFoundPage = (props) => (
   <Layout
-  myurl={props.location.pathname}>
+  myurl={props.location.pathname}
+  settings={[null]}>
     <h1>NOT FOUND</h1>
     <p>You just hit a route that doesn&#39;t exist... the sadness.</p>
   </Layout>

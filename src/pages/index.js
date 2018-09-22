@@ -5,7 +5,8 @@ import Layout from '../components/layout'
 
 const IndexPage = (props) => (
   <Layout
-  myurl={props.location.pathname}>
+  myurl={props.location.pathname}
+  settings={[null]}>
     <h1>Hi people</h1>
     <p>Welcome to your new Gatsby site.</p>
     <p>Now go build something great.</p>
