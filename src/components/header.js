@@ -8,6 +8,7 @@ import Dropmenu from './dropmenu'
 const Wrapper = styled('div')`
     background: rebeccapurple;
       border: none;
+      
 
 
 `

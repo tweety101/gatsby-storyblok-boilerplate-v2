@@ -23,6 +23,7 @@ const Dropmenu = ({ id, open, openfunction, closefunction }) => {
             <div className={css`
                 position: absolute;
                 display: ${display};
+                z-index: 5;
                 `}>
                 <a href="#">Link 1</a>
                 <a href="#">Link 2</a>
